@@ -1,0 +1,221 @@
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbPrintSimpleModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0"
+              ProviderManifestToken="4.0"
+              xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
+              xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dbPrintSimpleModelStoreContainer">
+          <EntitySet Name="tblCacheUpdates" EntityType="dbPrintSimpleModel.Store.tblCacheUpdates" store:Type="Tables" />
+          <EntitySet Name="tblMatchedDrivers" EntityType="dbPrintSimpleModel.Store.tblMatchedDrivers"
+                     store:Type="Tables" />
+          <EntitySet Name="tblPrinterClassCache" EntityType="dbPrintSimpleModel.Store.tblPrinterClassCache"
+                     store:Type="Tables" />
+          <EntitySet Name="tblPrinterDriverCache" EntityType="dbPrintSimpleModel.Store.tblPrinterDriverCache"
+                     store:Type="Tables" />
+          <EntitySet Name="tblPrinterTCPIPClassCache" EntityType="dbPrintSimpleModel.Store.tblPrinterTCPIPClassCache"
+                     store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="tblCacheUpdates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CacheUpdateGUID" Type="ntext" />
+          <Property Name="CacheUpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblMatchedDrivers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PrinterMakeModel" Type="ntext" />
+          <Property Name="PrinterMatchedDriver" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblPrinterClassCache">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PrinterName" Type="ntext" />
+          <Property Name="PrinterDriver" Type="ntext" />
+          <Property Name="PrinterServer" Type="ntext" />
+          <Property Name="CacheGUID" Type="ntext" />
+          <Property Name="PrinterPort" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblPrinterDriverCache">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PrinterDriver" Type="ntext" />
+          <Property Name="CacheGUID" Type="ntext" />
+          <Property Name="PrinterServer" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblPrinterTCPIPClassCache">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PortName" Type="ntext" />
+          <Property Name="PortAddress" Type="ntext" />
+          <Property Name="CacheGUID" Type="ntext" />
+          <Property Name="PrintServer" Type="ntext" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbPrintSimpleModel" Alias="Self" p1:UseStrongSpatialTypes="false"
+              xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbPrintSimpleEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCacheUpdates" EntityType="dbPrintSimpleModel.tblCacheUpdate" />
+          <EntitySet Name="tblMatchedDrivers" EntityType="dbPrintSimpleModel.tblMatchedDriver" />
+          <EntitySet Name="tblPrinterClassCaches" EntityType="dbPrintSimpleModel.tblPrinterClassCache" />
+          <EntitySet Name="tblPrinterDriverCaches" EntityType="dbPrintSimpleModel.tblPrinterDriverCache" />
+          <EntitySet Name="tblPrinterTCPIPClassCaches" EntityType="dbPrintSimpleModel.tblPrinterTCPIPClassCache" />
+        </EntityContainer>
+        <EntityType Name="tblCacheUpdate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CacheUpdateGUID" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CacheUpdateTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="tblMatchedDriver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PrinterMakeModel" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PrinterMatchedDriver" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblPrinterClassCache">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PrinterName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PrinterDriver" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PrinterServer" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CacheGUID" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PrinterPort" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblPrinterDriverCache">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PrinterDriver" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CacheGUID" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PrinterServer" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblPrinterTCPIPClassCache">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PortName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PortAddress" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CacheGUID" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PrintServer" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbPrintSimpleModelStoreContainer"
+                                CdmEntityContainer="dbPrintSimpleEntities">
+          <EntitySetMapping Name="tblCacheUpdates">
+            <EntityTypeMapping TypeName="dbPrintSimpleModel.tblCacheUpdate">
+              <MappingFragment StoreEntitySet="tblCacheUpdates">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CacheUpdateGUID" ColumnName="CacheUpdateGUID" />
+                <ScalarProperty Name="CacheUpdateTime" ColumnName="CacheUpdateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMatchedDrivers">
+            <EntityTypeMapping TypeName="dbPrintSimpleModel.tblMatchedDriver">
+              <MappingFragment StoreEntitySet="tblMatchedDrivers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PrinterMakeModel" ColumnName="PrinterMakeModel" />
+                <ScalarProperty Name="PrinterMatchedDriver" ColumnName="PrinterMatchedDriver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPrinterClassCaches">
+            <EntityTypeMapping TypeName="dbPrintSimpleModel.tblPrinterClassCache">
+              <MappingFragment StoreEntitySet="tblPrinterClassCache">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="PrinterDriver" ColumnName="PrinterDriver" />
+                <ScalarProperty Name="PrinterServer" ColumnName="PrinterServer" />
+                <ScalarProperty Name="CacheGUID" ColumnName="CacheGUID" />
+                <ScalarProperty Name="PrinterPort" ColumnName="PrinterPort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPrinterDriverCaches">
+            <EntityTypeMapping TypeName="dbPrintSimpleModel.tblPrinterDriverCache">
+              <MappingFragment StoreEntitySet="tblPrinterDriverCache">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PrinterDriver" ColumnName="PrinterDriver" />
+                <ScalarProperty Name="CacheGUID" ColumnName="CacheGUID" />
+                <ScalarProperty Name="PrinterServer" ColumnName="PrinterServer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPrinterTCPIPClassCaches">
+            <EntityTypeMapping TypeName="dbPrintSimpleModel.tblPrinterTCPIPClassCache">
+              <MappingFragment StoreEntitySet="tblPrinterTCPIPClassCache">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PortName" ColumnName="PortName" />
+                <ScalarProperty Name="PortAddress" ColumnName="PortAddress" />
+                <ScalarProperty Name="CacheGUID" ColumnName="CacheGUID" />
+                <ScalarProperty Name="PrintServer" ColumnName="PrintServer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <edmx:Diagrams>
+      <Diagram DiagramId="3fbd688def0a447bbeca66170c75ab56" Name="Diagram1">
+        <EntityTypeShape EntityType="dbPrintSimpleModel.tblCacheUpdate" Width="1.5" PointX="0.75" PointY="0.75"
+                         IsExpanded="true" />
+        <EntityTypeShape EntityType="dbPrintSimpleModel.tblMatchedDriver" Width="1.5" PointX="2.75" PointY="0.75"
+                         IsExpanded="true" />
+        <EntityTypeShape EntityType="dbPrintSimpleModel.tblPrinterClassCache" Width="1.5" PointX="0.75" PointY="3.75"
+                         IsExpanded="true" />
+        <EntityTypeShape EntityType="dbPrintSimpleModel.tblPrinterDriverCache" Width="1.5" PointX="2.75" PointY="3.75"
+                         IsExpanded="true" />
+        <EntityTypeShape EntityType="dbPrintSimpleModel.tblPrinterTCPIPClassCache" Width="1.5" PointX="4.75"
+                         PointY="0.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
